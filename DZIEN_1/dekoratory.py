@@ -36,3 +36,24 @@ def info(i):
     print(f'ważny kod: {i}')
 
 info("6543345309")
+
+#przykład 3  dekorator sprawdzający typy argumentów
+def sprawdz_typy(typy):
+    def dekorator(funkcja):
+        def wrapper(*args,**kwargs):
+            for (arg,typ) in zip(args,typy):
+                if not isinstance(arg,typ):
+                    raise TypeError(f"Argument {arg} nie jest typu: {typ}")
+            return funkcja(*args,**kwargs)
+        return wrapper
+    return dekorator
+
+@sprawdz_typy((int,int))
+def mnozenie(a,b):
+    return a*b
+
+try:
+    print(mnozenie(6,8))
+    print(mnozenie(6,"osiem"))
+except TypeError as te:
+    print(te)
