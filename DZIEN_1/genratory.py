@@ -53,3 +53,28 @@ print("*"*60)
 k = wznowienie(9,3)
 print(next(k))
 print(next(k))
+
+#przykład 3
+def sendgen():
+    x=0
+    while True:
+        y = yield x
+        if y is None:
+            x = x+1
+        else:
+            x = 3*y
+
+g = sendgen()
+print("_"*60)
+print(next(g))
+print(next(g))
+print(next(g))
+print(g.send(122))
+print(next(g))
+print(next(g))
+print(g.send(1280))
+print(next(g))
+print(g.send(15))
+print(next(g))
+print(g.send('a'))
+print(next(g))
