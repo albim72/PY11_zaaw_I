@@ -48,3 +48,15 @@ dmuchanie("świeczek na torcie")
 info()
 
 #przykład 3
+
+liczby = [45,262,5,8,49,-3,53,25,22,12,48,90,32,8,7,3,2]
+parzyste = list(filter(lambda x:x%2 == 0,liczby))
+print(parzyste)
+
+cube = list(map(lambda x:x**3,liczby))
+print(cube)
+
+
+#list comprehension
+dane = [i**7 for i in range(12_000)]
+print(dane)
