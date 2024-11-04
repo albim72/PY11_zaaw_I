@@ -23,3 +23,16 @@ def big_lista():
     sum([i**5 for i in range(10_000_000)])
 
 big_lista()
+
+#przykład 2
+def debug(funkcja):
+    def wrapper(*args):
+        print(f'wołana funkcja: {funkcja.__name__}')
+        funkcja(*args)
+    return wrapper
+
+@debug
+def info(i):
+    print(f'ważny kod: {i}')
+
+info("6543345309")
