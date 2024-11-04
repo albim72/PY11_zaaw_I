@@ -57,3 +57,28 @@ try:
     print(mnozenie(6,"osiem"))
 except TypeError as te:
     print(te)
+
+#przykład 4 -> dekorator służący do memoizacji wyników
+
+def memoizacja(funkcja):
+    cache = {}
+
+    def wrapper(*args):
+        if args in cache:
+            print(f'Zwracanie wyniku z cache dla argumentów {args}')
+            print(f'funkcja: {funkcja.__name__}({args} -> {funkcja(*args)})')
+            return cache[args]
+        else:
+            wynik = funkcja(*args)
+            cache[args] = wynik
+            return wynik
+    return wrapper
+
+@memoizacja
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(10))
