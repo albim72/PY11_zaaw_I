@@ -48,3 +48,8 @@ for i in wznowienie(8,4):
     print("_"*50)
     print(type(i))
     print(f'zwrócono wartośc: {i}')
+
+print("*"*60)
+k = wznowienie(9,3)
+print(next(k))
+print(next(k))
