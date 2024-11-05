@@ -6,3 +6,7 @@ class Pojazd(IPojazd):
 
     def kosztyprzejazdu(self, odl, jedn, cena):
         return self.spalanie(odl,jedn)*(odl/100)*cena
+
+    def info(self, i):
+        pass
+
