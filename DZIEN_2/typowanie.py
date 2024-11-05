@@ -33,3 +33,37 @@ print(validate_coordinate("invalide coordinate"))
 print("_"*70)
 print(validate_coordinate(example_path[3][0]))
 print(validate_coordinate(example_path[3][1]))
+
+#przykład 3 - użycie Protocol do definiowania interfejsów
+
+from typing import Protocol
+
+class Runner(Protocol):
+    def run(self)->str:
+        ...
+
+    def finish_time(self)->float:
+        ...
+
+class Athlete:
+    def run(self)->str:
+        return "Athlete is running!"
+
+    def finish_time(self)->float:
+        return 1.15
+
+class Robot:
+    def run(self)->str:
+        return "Robot is running!"
+
+    def finish_time(self)->float:
+        return 1.12
+
+def start_race(participant:Runner)->None:
+    print(participant.run())
+    print(participant.finish_time())
+
+athlete = Athlete()
+robot = Robot()
+start_race(athlete)
+start_race(robot)
