@@ -90,3 +90,12 @@ stack.push(12)
 stack.push(8.8)
 stack.push("abcv")
 print(stack.pop())
+
+#przykład 5 - użycie Literal dla wartości predefiniowanych
+
+from typing import Literal
+def set_status(status:Literal['active','inactive','pending'])->str:
+    return f"Status to: {status}"
+
+print(set_status('active'))
+print(set_status('destroy'))
