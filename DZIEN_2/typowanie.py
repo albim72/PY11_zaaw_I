@@ -67,3 +67,26 @@ athlete = Athlete()
 robot = Robot()
 start_race(athlete)
 start_race(robot)
+
+#przykład 4  użycie Generic dla funkcji z typami ogólnymi
+from typing import TypeVar,Generic,List
+
+T = TypeVar('T')
+
+class Stack(Generic[T]):
+    def __init__(self)->None:
+        self._container: List[T] = []
+
+    def push(self,item:T)->None:
+        self._container.append(item)
+
+    def pop(self)->T:
+        return self._container.pop()
+
+
+stack = Stack[int]()
+stack.push(10)
+stack.push(12)
+stack.push(8.8)
+stack.push("abcv")
+print(stack.pop())
