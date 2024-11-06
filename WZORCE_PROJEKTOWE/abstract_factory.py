@@ -41,11 +41,11 @@ class AbstractDocumentFactory(ABC,Base):
 
 #konkretne fabryki dokumentów
 class InvoiceFactory(AbstractDocumentFactory):
-    def create_document(self) -> AbstractDocument:
+    def create_document(self) -> InvoiceDocument:
         return InvoiceDocument()
 
 class ReportFactory(AbstractDocumentFactory):
-    def create_document(self) -> AbstractDocument:
+    def create_document(self) -> ReportDocument:
         return ReportDocument()
 
 #funkcja kliencka
