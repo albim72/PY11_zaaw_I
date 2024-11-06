@@ -1,0 +1,29 @@
+class Zwierze:
+    def daj_glos(self):
+        raise NotImplementedError("subklasa musi zaimplementowa tą metodę")
+
+class Pies(Zwierze):
+
+    def daj_glos(self):
+        return "hau hau"
+
+
+class Kot(Zwierze):
+
+    def daj_glos(self):
+        return "miau miau"
+
+
+class Swinia(Zwierze):
+    def howdowla(self,gdzie):
+        return f"zwierzę hodowane w {gdzie}"
+
+zw1 = Pies()
+zw2 = Kot()
+zw3 = Swinia()
+
+
+print(zw1.daj_glos())
+print(zw2.daj_glos())
+print(zw3.howdowla("chlew"))
+print(zw3.daj_glos())
