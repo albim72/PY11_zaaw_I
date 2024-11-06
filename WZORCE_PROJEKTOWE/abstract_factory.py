@@ -19,8 +19,8 @@ class AbstractDocument(ABC):
     def display(self):
         print("Displaying Content")
         print(self.generate_content())
-        
-        
+
+
 #konkretna implementacja dokumentów
 class InvoiceDocument(AbstractDocument):
     def generate_content(self):
@@ -29,3 +29,24 @@ class InvoiceDocument(AbstractDocument):
 class ReportDocument(AbstractDocument):
     def generate_content(self):
         return "Treśc raportu: Analizy danych, podsumowanie miesięczne."
+    
+#klasa abstrakcyjna dla fabryk dokumentów
+class AbstractDocumentFactory(ABC,metaclass=FactoryMeta):
+    @abstractmethod
+    def create_document(self) -> AbstractDocument:
+        pass
+    
+#konkretne fabryki dokumentów
+class InvoiceFactory(AbstractDocumentFactory):
+    def create_document(self) -> AbstractDocument:
+        return InvoiceDocument()
+    
+class ReportFactory(AbstractDocumentFactory):
+    def create_document(self) -> AbstractDocument:
+        return ReportDocument()
+    
+#funkcja kliencka
+def client_code(factory:AbstractDocumentFactory):
+    document = factory.create_document()
+    document.display()
+    
