@@ -7,7 +7,8 @@ def log_state_changes(cls):
     class Wrapped(cls):
         def __setattr__(self, name, value):
             if name in self.__dict__:
-                old_value = self.__dict__(name)
+                # Use square brackets to access dictionary elements
+                old_value = self.__dict__[name]  
                 print(f"Zmieniono {name} z {old_value} to {value}")
             super().__setattr__(name,value)
     return Wrapped
