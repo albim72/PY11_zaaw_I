@@ -19,7 +19,7 @@ def state_manager(cls):
 
         def __getattribute__(self, name):
             value = super().__getattribute__(name)
-            if name == 'status' and self._state == 'inactive':
+            if name == 'run_fast' and self._state == 'inactive':
                 raise ValueError("Obiekt jest nieaktywny!")
             return value
     return Wrapped
